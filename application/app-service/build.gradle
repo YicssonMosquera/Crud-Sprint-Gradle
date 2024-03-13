@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.2.3'
+    id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group 'com.example'
+version '0.0.1-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter:3.2.3'
+    runtimeOnly('com.mysql:mysql-connector-j')
+    implementation project(":domain-usecase")
+    implementation project(":domain-model")
+    implementation project(":driven-adapter-jpa-repository")
+    implementation project(":entry-points-reactive-web")
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-webflux', version: '3.2.1'
+    testImplementation "org.junit.jupiter:junit-jupiter-api:5.9.0"
+    testRuntimeOnly    "org.junit.jupiter:junit-jupiter-engine:5.9.0"
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.mockito:mockito-inline:4.8.0'
+
+}
