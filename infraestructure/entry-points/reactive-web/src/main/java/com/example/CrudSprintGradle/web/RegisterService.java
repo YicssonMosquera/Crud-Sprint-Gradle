@@ -28,7 +28,6 @@ public class RegisterService {
 
     @PostMapping(path = "/guardar")
     public Mono<Register> guardarDatos(@RequestBody RegisterJsonData register){
-        System.out.println(register);
         return registerUsecase.saveInformation(mapper.getRegister(register));
     }
 
